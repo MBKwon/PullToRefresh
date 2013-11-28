@@ -9,7 +9,7 @@ A simple iPhone TableViewController for adding pull-to-refresh functionality.
 ![](http://s3.amazonaws.com/leah.baconfile.com/blog/refresh-small-3.png)
 ![](http://s3.amazonaws.com/leah.baconfile.com/blog/refresh-small-4.png)
 
-Inspired by [leah](https://github.com/leah) and her projest[leah / PullToRefresh](https://github.com/leah/PullToRefresh).
+Inspired by [leah](https://github.com/leah) and her project [leah / PullToRefresh](https://github.com/leah/PullToRefresh).
 
 
 How to install
