@@ -14,9 +14,9 @@ Inspired by [leah](https://github.com/leah) and her project [leah / PullToRefres
 
 How to install
 
-1. Copy the files, [PullRefreshTableView](https://github.com/MBKwon/PullToRefresh/master/Classes/PullRefreshTableView.h),
-[PullRefreshTableView.m](https://github.com/MBKwon/PullToRefresh/master/Classes/PullRefreshTableView.m),
-and [arrow.png](https://github.com/MBKwon/PullToRefresh/raw/master/arrow.png) into your project.
+1. Copy the files, [PullRefreshTableView.h](https://github.com/MBKwon/PullToRefresh/tree/master/Classes/PullRefreshTableView.h),
+[PullRefreshTableView.m](https://github.com/MBKwon/PullToRefresh/tree/master/Classes/PullRefreshTableView.m),
+and [arrow.png](https://github.com/MBKwon/PullToRefresh/blob/master/arrow.png) into your project.
 
 2. Link against the QuartzCore framework (used for rotating the arrow image).
 
