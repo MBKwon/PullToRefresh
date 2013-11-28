@@ -21,7 +21,7 @@
     CGRect screenBounds = [[UIScreen mainScreen] bounds];
 	self.window = [[[UIWindow alloc] initWithFrame: screenBounds] autorelease];
 
-    DemoTableViewController *demoTableViewController = [[[DemoTableViewController alloc] init] autorelease];
+    DemoTableViewController *demoTableViewController = [[DemoTableViewController alloc] init];
     navigationController = [[UINavigationController alloc] initWithRootViewController:demoTableViewController];
 
     [window addSubview:navigationController.view];

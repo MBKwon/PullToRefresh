@@ -11,22 +11,28 @@
 
 @implementation DemoTableViewController
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
 
     self.title = @"Pull to Refresh";
     items = [[NSMutableArray alloc] initWithObjects:@"What time is it?", nil];
+    [_tableView addPullToRefreshHeader];
+    [_tableView setRefreshDelegate:self];
 }
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
     return 1;
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
     return [items count];
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
 
     static NSString *CellIdentifier = @"CellIdentifier";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
@@ -40,11 +46,13 @@
     return cell;
 }
 
-- (void)refresh {
+- (void)refresh
+{
     [self performSelector:@selector(addItem) withObject:nil afterDelay:2.0];
 }
 
-- (void)addItem {
+- (void)addItem
+{
     // Add a new time
     NSDateFormatter *dateFormatter = [[[NSDateFormatter alloc] init] autorelease];
     [dateFormatter setTimeStyle:NSDateFormatterMediumStyle];
@@ -52,11 +60,27 @@
     [items insertObject:[NSString stringWithFormat:@"%@", now] atIndex:0];
 
     [self.tableView reloadData];
-
-    [self stopLoading];
+    
+    [_tableView stopLoading];
 }
 
-- (void)dealloc {
+-(void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
+{
+    [_tableView scrollViewWillBeginDragging:scrollView];
+}
+
+-(void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    [_tableView scrollViewDidScroll:scrollView];
+}
+
+-(void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate
+{
+    [_tableView scrollViewDidEndDragging:scrollView willDecelerate:decelerate];
+}
+
+- (void)dealloc
+{
     [items release];
     [super dealloc];
 }
