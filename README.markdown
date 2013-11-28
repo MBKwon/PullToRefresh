@@ -20,7 +20,7 @@ and [arrow.png](https://github.com/MBKwon/PullToRefresh/blob/master/arrow.png) i
 
 2. Link against the QuartzCore framework (used for rotating the arrow image).
 
-3. Create a UITableView that is a subclass of PullRefreshTableView in your ViewController where you want to use Pull-to-refresh.
+3. Create a tableView that is a subclass of PullRefreshTableView in your ViewController where you want to use Pull-to-refresh.
 
 4. Customize by delegate your own refresh() method.
 
