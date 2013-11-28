@@ -14,15 +14,15 @@ Inspired by [leah](https://github.com/leah) and her project [leah / PullToRefres
 
 How to install
 
-1. Copy the files, [PullRefreshTableViewController.h](https://raw.github.com/leah/PullToRefresh/master/Classes/PullRefreshTableViewController.h),
-[PullRefreshTableViewController.m](https://raw.github.com/leah/PullToRefresh/master/Classes/PullRefreshTableViewController.m),
-and [arrow.png](http://github.com/leah/PullToRefresh/raw/master/arrow.png) into your project.
+1. Copy the files, [PullRefreshTableView](https://github.com/MBKwon/PullToRefresh/master/Classes/PullRefreshTableView.h),
+[PullRefreshTableView.m](https://github.com/MBKwon/PullToRefresh/master/Classes/PullRefreshTableView.m),
+and [arrow.png](https://github.com/MBKwon/PullToRefresh/raw/master/arrow.png) into your project.
 
 2. Link against the QuartzCore framework (used for rotating the arrow image).
 
-3. Create a TableViewController that is a subclass of PullRefreshTableViewController.
+3. Create a UITableView that is a subclass of PullRefreshTableView in your ViewController where you want to use Pull-to-refresh.
 
-4. Customize by adding your own refresh() method.
+4. Customize by delegate your own refresh() method.
 
 
 Enjoy!
