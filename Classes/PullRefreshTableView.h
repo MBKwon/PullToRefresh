@@ -43,15 +43,30 @@
 }
 
 @property (nonatomic, strong) id<PullToRefreshDelegate> refreshDelegate;
+@property (nonatomic, strong) NSMutableArray *items;
+@property (nonatomic, assign) NSInteger moreCount;
+
+
 @property (nonatomic, retain) UIView *refreshHeaderView;
-@property (nonatomic, retain) UILabel *refreshLabel;
-@property (nonatomic, retain) UIImageView *refreshArrow;
-@property (nonatomic, retain) UIActivityIndicatorView *refreshSpinner;
+@property (nonatomic, retain) UILabel *refreshLabelHeader;
+@property (nonatomic, retain) UIImageView *refreshArrowHeader;
+@property (nonatomic, retain) UIActivityIndicatorView *refreshSpinnerHeader;
+
+@property (nonatomic, retain) UIView *refreshFooterView;
+@property (nonatomic, retain) UIActivityIndicatorView *refreshSpinnerFooter;
+
+
+-(NSInteger)getShowCount;
 
 
 - (void)addPullToRefreshHeader;
-- (void)startLoading;
-- (void)stopLoading;
+- (void)startLoadingHeader;
+- (void)stopLoadingHeader;
+
+
+- (void)addPullToRefreshFooter;
+- (void)startLoadingFooter;
+- (void)stopLoadingFooter;
 
 //these methods will be used for implement a UIScrollViewDelegate.
 -(void)scrollViewWillBeginDragging:(UIScrollView *)scrollView;

@@ -16,7 +16,8 @@
     [super viewDidLoad];
 
     self.title = @"Pull to Refresh";
-    items = [[NSMutableArray alloc] initWithObjects:@"What time is it?", nil];
+    _tableView.items = [[NSMutableArray alloc] initWithObjects:@"What time is it?", nil];
+    [_tableView addPullToRefreshFooter];
     [_tableView addPullToRefreshHeader];
     [_tableView setRefreshDelegate:self];
 }
@@ -28,7 +29,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [items count];
+    return [_tableView getShowCount];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -40,7 +41,7 @@
         cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
     }
 
-    cell.textLabel.text = [items objectAtIndex:indexPath.row];
+    cell.textLabel.text = [_tableView.items objectAtIndex:indexPath.row];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
 
     return cell;
@@ -57,11 +58,11 @@
     NSDateFormatter *dateFormatter = [[[NSDateFormatter alloc] init] autorelease];
     [dateFormatter setTimeStyle:NSDateFormatterMediumStyle];
     NSString *now = [dateFormatter stringFromDate:[NSDate date]];
-    [items insertObject:[NSString stringWithFormat:@"%@", now] atIndex:0];
+    [_tableView.items insertObject:[NSString stringWithFormat:@"%@", now] atIndex:0];
 
     [self.tableView reloadData];
     
-    [_tableView stopLoading];
+    [_tableView stopLoadingHeader];
 }
 
 -(void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
@@ -81,7 +82,7 @@
 
 - (void)dealloc
 {
-    [items release];
+    [_tableView.items release];
     [super dealloc];
 }
 
